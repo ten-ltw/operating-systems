@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.ts": "typescript",
+    "common.h": "c",
+    "time.h": "c",
+    "assert.h": "c"
+  }
+}
