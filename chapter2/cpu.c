@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
   while (1)
   {
     Spin(1);
+    printf("%s", string);
+    printf("%s", string);
     printf("%s\n", string);
   }
   return 0;
