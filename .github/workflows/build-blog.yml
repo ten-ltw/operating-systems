@@ -28,3 +28,11 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: yarn build
+
+    - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          external_repository: ten-ltw/operating-systems
+          personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }}
+          publish_dir: ./docs/.vuepress/dist
+          publish_branch: page	# 发布到哪个branch
