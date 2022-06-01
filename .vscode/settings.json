@@ -4,5 +4,6 @@
     "common.h": "c",
     "time.h": "c",
     "assert.h": "c"
-  }
+  },
+  "git.ignoreLimitWarning": true
 }
