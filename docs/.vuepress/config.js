@@ -1,7 +1,7 @@
 module.exports = {
   title: "XXX的博客",
   description: "XXX的博客",
-  base: "./",
+  base: "/operating-systems/",
   dest: "./dist",
   port: "8080",
   head: [["link", { rel: "icon", href: "/logo.jpg" }]],
