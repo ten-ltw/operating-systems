@@ -1,4 +1,4 @@
-# cup
+# cpu
 ## gcc
 
 gcc 是编译器。

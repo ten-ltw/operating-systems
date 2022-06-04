@@ -1,0 +1,59 @@
+@import 'code.styl';
+@import 'article.styl';
+
+color-gray = #e1e1e1;
+color-dark-black = #2d2d2d;
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ten-layout-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.ten-layout-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ten-layout-dynamic {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.ten-layout-static {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.ten-layout-top {
+  background-color: color-dark-black;
+  height: 125px;
+}
+
+.ten-layout-main {
+  background-color: color-gray;
+}
+
+.ten-layout-bottom {
+  height: 40px;
+}
+
+.ten-layout-advertisement {
+  width: 250px;
+}
+
+.ten-layout-article {
+  background-color: color-white;
+  width: 700px;
+}
+
+.ten-layout-sidebar {
+  width: 100%;
+}

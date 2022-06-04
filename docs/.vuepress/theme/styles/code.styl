@@ -1,0 +1,84 @@
+// .language-java{
+// background-color: #000000
+// }
+color-keyword = #4ec9b0;
+color-class-name = #458;
+color-string = #d14;
+color-number = #a808de;
+color-background = #fdf6e3;
+color-background-boder = #e7d3c3;
+color-comment = #998;
+color-function = #45a7e7;
+color-punctuation = #034ceb;
+color-operator = #05bb29;
+color-line-number = #b37f54;
+
+.line-numbers-mode {
+  display: flex;
+  flex-direction: row-reverse;
+  font: 16px Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  word-break: normal;
+  white-space: pre;
+  background-color: color-background;
+  border-radius: 0.5em;
+  border: 1px solid color-background-boder;
+  padding: 0.5em;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5em;
+
+  .line-numbers-wrapper {
+    margin-right: auto;
+    flex: 0 0 auto;
+    color: color-line-number;
+    text-align: right;
+    padding-bottom: 0.5em;
+  }
+
+  pre {
+    width: 100%;
+    flex: 1 1 auto;
+    margin: 0;
+    overflow: auto;
+    margin-left: 1em;
+    padding-bottom: 0.5em;
+
+    .token.keyword {
+      color: color-keyword;
+      font-weight: bold;
+    }
+
+    .token.class-name {
+      color: color-class-name;
+      font-weight: bold;
+    }
+
+    .token.number {
+      color: color-number;
+    }
+
+    .token.string {
+      color: color-string;
+    }
+
+    .token.punctuation {
+      color: color-punctuation;
+    }
+
+    .token.comment {
+      color: color-comment;
+      font-style: italic;
+    }
+
+    .token.function {
+      color: color-function;
+    }
+
+    .token.punctuation {
+      color: color-punctuation;
+    }
+
+    .token.operator {
+      color: color-operator;
+    }
+  }
+}

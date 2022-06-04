@@ -34,5 +34,5 @@ jobs:
       with:
         external_repository: ten-ltw/operating-systems
         personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }}
-        publish_dir: ./docs/.vuepress/dist
+        publish_dir: ./dist
         publish_branch: page	# 发布到哪个branch
