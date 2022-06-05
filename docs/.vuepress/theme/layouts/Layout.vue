@@ -1,7 +1,6 @@
 <template>
   <div class="ten-layout-column">
-    <ten-show-data></ten-show-data>
-    <div class="ten-layout-static ten-layout-top"></div>
+    <div class="ten-layout-static ten-layout-top"><ten-nav/></div>
     <div class="ten-layout-dynamic ten-layout-row ten-layout-main">
       <div class="ten-layout-static ten-layout-advertisement"></div>
       <div class="ten-layout-static ten-layout-column ten-layout-article">
@@ -18,6 +17,7 @@
         <Content class="ten-article-body" />
       </div>
       <div class="ten-layout-dynamic ten-layout-sidebar">
+        <pre><ten-sidebar></ten-sidebar></pre>
       </div>
     </div>
     <div class="ten-layout-static ten-layout-bottom"></div>
@@ -25,9 +25,9 @@
 </template>
 
 <script>
+import TenNav from '../global-components/ten-nav.vue';
 export default {
-  computed: {
-
-  }
+    computed: {},
+    components: { TenNav }
 }
 </script>

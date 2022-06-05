@@ -11,8 +11,12 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: "第二章",
-        link: "/chapter2/",
+        text: "JavaScript",
+        link: "/javascript/",
+      },
+      {
+        text: "Operation System",
+        link: "/os/",
       },
     ],
     lastUpdated: "Last Updated",

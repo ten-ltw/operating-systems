@@ -1,0 +1,42 @@
+font-color = #cc2100;
+font-active-color = #ff8400;
+
+.ten-sidebar {
+  width: 400px;
+
+  ul {
+    li {
+      list-style: none;
+
+      &.level-1 {
+        a {
+          font-weight: 600;
+        }
+      }
+
+      &.level-2 {
+        margin-left: 1em;
+        margin-top: 1em;
+
+        a {
+          font-weight: 500;
+        }
+      }
+
+      &.level-3 {
+        margin-left: 2em;
+        margin-top: 0.5em;
+      }
+
+      a {
+        color: font-color;
+        text-decoration: none;
+        font: 14px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+        &.active {
+          color: font-active-color;
+        }
+      }
+    }
+  }
+}

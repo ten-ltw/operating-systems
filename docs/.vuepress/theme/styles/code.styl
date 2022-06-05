@@ -22,7 +22,6 @@ color-line-number = #b37f54;
   background-color: color-background;
   border-radius: 0.5em;
   border: 1px solid color-background-boder;
-  padding: 0.5em;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5em;
 
@@ -31,7 +30,22 @@ color-line-number = #b37f54;
     flex: 0 0 auto;
     color: color-line-number;
     text-align: right;
-    padding-bottom: 0.5em;
+    padding: 0.9em 0;
+    border-right: 1px solid color-background-boder;
+
+    span:first-child {
+      border-top: 1px solid color-background-boder;
+    }
+
+    span {
+      display: block;
+      border-bottom: 1px solid color-background-boder;
+      padding: 0 2px;
+    }
+
+    br {
+      display: none;
+    }
   }
 
   pre {
@@ -39,8 +53,9 @@ color-line-number = #b37f54;
     flex: 1 1 auto;
     margin: 0;
     overflow: auto;
-    margin-left: 1em;
-    padding-bottom: 0.5em;
+    margin: 0 0.3em;
+    padding: 0.9em 0;
+    line-height: 25px;
 
     .token.keyword {
       color: color-keyword;
