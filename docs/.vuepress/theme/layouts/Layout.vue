@@ -19,7 +19,6 @@
           </div>
         </div>
         <div class="ten-layout-dynamic ten-article-container">
-          <ten-show-data></ten-show-data>
           <Content class="ten-article-body" />
         </div>
       </div>
