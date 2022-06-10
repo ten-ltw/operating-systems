@@ -2,11 +2,22 @@ font-color = #cc2100;
 font-active-color = #ff8400;
 
 .ten-sidebar {
-  width: 400px;
+  width: 100%;
+  margin: 2em -1em;
 
   ul {
     li {
       list-style: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.level {
+        margin-bottom: 1em;
+        a {
+          font-weight: 600;
+        }
+      }
 
       &.level-1 {
         a {
@@ -31,7 +42,7 @@ font-active-color = #ff8400;
       a {
         color: font-color;
         text-decoration: none;
-        font: 14px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font: 0.9em Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
 
         &.active {
           color: font-active-color;

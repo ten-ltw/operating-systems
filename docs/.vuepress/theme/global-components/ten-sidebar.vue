@@ -1,7 +1,7 @@
 <template>
   <div class="ten-sidebar">
     <ul v-if="pages().length > 0">
-      <li v-for="page in pages()">
+      <li class="level" v-for="page in pages()">
         <a :href="page.path">{{ page.title }}</a>
       </li>
     </ul>

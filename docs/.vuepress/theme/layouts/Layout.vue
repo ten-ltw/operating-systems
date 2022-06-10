@@ -19,11 +19,12 @@
           </div>
         </div>
         <div class="ten-layout-dynamic ten-article-container">
+          <ten-show-data></ten-show-data>
           <Content class="ten-article-body" />
         </div>
       </div>
       <div class="ten-layout-dynamic ten-layout-sidebar">
-        <pre><ten-sidebar></ten-sidebar></pre>
+        <ten-sidebar></ten-sidebar>
       </div>
     </div>
     <div class="ten-layout-static ten-layout-bottom"></div>
