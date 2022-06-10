@@ -8,15 +8,336 @@
     <link rel="icon" href="/operating-systems/logo.jpg">
     <meta name="description" content="XXX的博客">
     
-    <link rel="preload" href="/operating-systems/assets/css/1.styles.5c191e87.css" as="style"><link rel="preload" href="/operating-systems/assets/js/app.7a90c72f.js" as="script"><link rel="preload" href="/operating-systems/assets/js/2.9b8aadf5.js" as="script"><link rel="preload" href="/operating-systems/assets/js/9.5476164b.js" as="script"><link rel="preload" href="/operating-systems/assets/js/5.0efd59db.js" as="script"><link rel="prefetch" href="/operating-systems/assets/js/10.79716115.js"><link rel="prefetch" href="/operating-systems/assets/js/11.25343858.js"><link rel="prefetch" href="/operating-systems/assets/js/12.b13392d7.js"><link rel="prefetch" href="/operating-systems/assets/js/3.9ee255b6.js"><link rel="prefetch" href="/operating-systems/assets/js/4.47e78be3.js"><link rel="prefetch" href="/operating-systems/assets/js/6.f93dd14b.js"><link rel="prefetch" href="/operating-systems/assets/js/7.fa9c4957.js"><link rel="prefetch" href="/operating-systems/assets/js/8.eb895e46.js">
-    <link rel="stylesheet" href="/operating-systems/assets/css/1.styles.5c191e87.css">
+    <link rel="preload" href="/operating-systems/assets/css/1.styles.29e770f8.css" as="style"><link rel="preload" href="/operating-systems/assets/js/app.adfa2867.js" as="script"><link rel="preload" href="/operating-systems/assets/js/2.98616f0e.js" as="script"><link rel="preload" href="/operating-systems/assets/js/4.47e78be3.js" as="script"><link rel="preload" href="/operating-systems/assets/js/9.5476164b.js" as="script"><link rel="preload" href="/operating-systems/assets/js/5.7b205554.js" as="script"><link rel="prefetch" href="/operating-systems/assets/js/10.79716115.js"><link rel="prefetch" href="/operating-systems/assets/js/11.25343858.js"><link rel="prefetch" href="/operating-systems/assets/js/12.b13392d7.js"><link rel="prefetch" href="/operating-systems/assets/js/3.9ee255b6.js"><link rel="prefetch" href="/operating-systems/assets/js/6.f93dd14b.js"><link rel="prefetch" href="/operating-systems/assets/js/7.fa9c4957.js"><link rel="prefetch" href="/operating-systems/assets/js/8.eb895e46.js">
+    <link rel="stylesheet" href="/operating-systems/assets/css/1.styles.29e770f8.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="ten-layout-column"><div class="ten-layout-static ten-layout-top"><div class="ten-layout-row ten-nav"><div class="ten-layout-dynamic"></div> <li class="ten-layout-static"><a href="/javascript/" class="active">JavaScript</a></li><li class="ten-layout-static"><a href="/os/">Operation System</a></li></div></div> <div class="ten-layout-dynamic ten-layout-row ten-layout-main"><div class="ten-layout-static ten-layout-advertisement"></div> <div class="ten-layout-static ten-layout-column ten-layout-article"><div class="ten-layout-static ten-header-container"><div class="ten-article-header"><h3>XXX的博客</h3> <h1>第 10 章 模块</h1> <div class="ten-last-updated-time">
             last update time
             <time datetime="$page.lastUpdatedTimestamp" class="article-date">
-              6/5/2022, 2:14:01 PM
-            </time></div></div></div> <div class="ten-layout-dynamic ten-article-container"><div class="ten-article-body content__default"><h1 id="第-10-章-模块"><a href="#第-10-章-模块" class="header-anchor">#</a> 第 10 章 模块</h1> <p>[toc]</p> <p>The goal of modular programming is to allow large programs to be assembled using modules of code from disparate authors and sources and for all of that code to run correctly even in the presence of code that the various module authors did not anticipate. As a practical matter, modularity is mostly about encapsulating or hiding private implementation details and keeping the global namespace tidy so that modules cannot accidentally modify the variables, functions, and classes defined by other modules.</p> <blockquote><p>模块化编程的目标是允许使用来自不同作者和源的代码模块来组装大型程序，并且即使出现了不同模块作者没有预料到的代码，所有这些代码也能正确运行。作为一个实际问题，模块化主要是关于封装或隐藏私有实现细节和保持全局名称空间整洁，以便模块不会意外地修改其他模块定义的变量、函数和类。</p></blockquote> <p>Until recently, JavaScript had no built-in support for modules, and programmers working on large code bases did their best to use the weak modularity available through classes, objects, and closures. Closure-based modularity, with support from code-bundling tools, led to a practical form of modularity based on a require() function, which was adopted by Node. require()-based modules are a fundamental part of the Node programming environment but were never adopted as an official part of the JavaScript language. Instead, ES6 defines modules using import and export keywords. Although import and export have been part of the language for years, they were only implemented by web browsers and Node relatively recently. And, as a practical matter, JavaScript modularity still depends on code-bundling tools.</p> <blockquote><p>直到最近，JavaScript 还没有对模块的内置支持，在大型代码库上工作的程序员尽力使用类、对象和闭包的弱模块性。基于闭包的模块化在代码捆绑工具的支持下，实际使用中形成了一种基于 require() 函数的模块化形式，Node 采用了这种形式。基于 require() 的模块是 Node 编程环境的基本部分，但从未被作为 JavaScript 语言的正式部分采用。相反，ES6 使用 import 和 import 关键字定义模块。虽然 import 和 export 已经成为语言的一部分很多年了，但是它们只是最近才被 web 浏览器和 Node 实现。而且，作为一个实际问题，JavaScript 模块化仍然依赖于代码捆绑工具。</p></blockquote> <p>The sections that follow cover:</p> <blockquote><p>以下各节包括:</p></blockquote> <ul><li>Do-it-yourself modules with classes, objects, and closures</li> <li>Node modules using require()</li> <li>ES6 modules using export, import, and import()</li></ul> <hr> <blockquote><ul><li>使用类、对象和闭包自己做模块</li> <li>使用 require() 的 Node 模块</li> <li>使用 export、import 和 import() 的ES6模块</li></ul></blockquote> <h2 id="_10-1-modules-with-classes-objects-and-closures"><a href="#_10-1-modules-with-classes-objects-and-closures" class="header-anchor">#</a> 10.1 Modules with Classes, Objects, and Closures</h2> <p>Though it may be obvious, it is worth pointing out that one of the important features of classes is that they act as modules for their methods. Think back to Example 9-8. That example defined a number of different classes, all of which had a method named has(). But you would have no problem writing a program that used multiple set classes from that example: there is no danger that the implementation of has() from SingletonSet will overwrite the has() method of BitSet, for example.</p> <blockquote><p>尽管这可能很明显，但值得指出的是，类的重要特性之一是它们充当其方法的模块。回想一下示例 9-8。该示例定义了许多不同的类，所有这些类都有一个名为 has() 的方法。但是，在编写使用该示例中的多个 set 类的程序时没有问题：例如，SingletonSet 的 has() 实现不会覆盖 BitSet 的 has() 方法。</p></blockquote> <p>The reason that the methods of one class are independent of the methods of other, unrelated classes is that the methods of each class are defined as properties of independent prototype objects. The reason that classes are modular is that objects are modular: defining a property in a JavaScript object is a lot like declaring a variable, but adding properties to objects does not affect the global namespace of a program, nor does it affect the properties of other objects. JavaScript defines quite a few mathematical functions and constants, but instead of defining them all globally, they are grouped as properties of a single global Math object. This same technique could have been used in Example 9-8. Instead of defining global classes with names like SingletonSet and BitSet, that example could have been written to define only a single global Sets object, with properties referencing the various classes. Users of this Sets library could then refer to the classes with names like Sets.Singleton and Sets.Bit.</p> <blockquote><p>一个类的方法独立于其他不相关类的方法的原因是，每个类的方法都被定义为独立原型对象的属性。类是模块化的原因是对象是模块化的：在 JavaScript 对象中定义属性非常类似于声明变量，但是向对象添加属性不会影响程序的全局命名空间，也不会影响其他对象的属性。JavaScript 定义了很多数学函数和常量，但它们不是全局定义的，而是分组为 Math 全局对象的单个属性。同样的技术也可以用在示例 9-8 中。不使用 SingletonSet 和 BitSet 这样的名称定义全局类，这个示例可以编写为只有一个 Sets 全局对象，Sets 的属性引用各种类。然后，用户可以使用这个 Sets 库通过 Sets.Singleton 和 Sets.Bit 的名称来获取类的引用。</p></blockquote> <p>Using classes and objects for modularity is a common and useful technique in JavaScript programming, but it doesn’t go far enough. In particular, it doesn’t offer us any way to hide internal implementation details inside the module. Consider Example 9-8 again. If we were writing that example as a module, maybe we would have wanted to keep the various abstract classes internal to the module, only making the concrete subclasses available to users of the module. Similarly, in the BitSet class, the _valid() and _has() methods are internal utilities that should not really be exposed to users of the class. And BitSet.bits and BitSet.masks are implementation details that would be better off hidden.</p> <blockquote><p>使用类和对象实现模块化是 JavaScript 编程中常见而有用的技术，但这还不够。特别是，它没有提供任何方法来隐藏模块内部的实现细节。再次考虑示例 9-8。如果我们将该示例作为一个模块来编写，也许我们会希望将各种抽象类保留在模块内部，只让具体的子类对模块的用户可用。同样，在 BitSet 类中，_valid() 和 _has() 方法是内部实用程序，不应该向类的用户公开它们。BitSet.bits 和 BitSet.masks 是实现细节，最好隐藏起来。</p></blockquote> <p>As we saw in §8.6, local variables and nested functions declared within a function are private to that function. This means that we can use immediately invoked function expressions to achieve a kind of modularity by leaving the implementation details and utility functions hidden within the enclosing function but making the public API of the module the return value of the function. In the case of the BitSet class, we might structure the module like this:</p> <blockquote><p>正如我们在 §8.6 中看到的，在函数中声明的局部变量和嵌套函数是该函数私有的。这意味着我们可以使用立即调用函数表达式来实现一种模块化，方法是将实现细节和实用函数隐藏在封装的函数中，而将模块的公共 API 作为函数的返回值。在 BitSet 类的情况下，我们可以像这样构造模块:</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> BitSet <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Set BitSet to the return value of this function</span>
+              6/10/2022, 6:16:02 AM
+            </time></div></div></div> <div class="ten-layout-dynamic ten-article-container"><div><pre>    {
+  &quot;title&quot;: &quot;XXX的博客&quot;,
+  &quot;description&quot;: &quot;XXX的博客&quot;,
+  &quot;base&quot;: &quot;/operating-systems/&quot;,
+  &quot;headTags&quot;: [
+    [
+      &quot;link&quot;,
+      {
+        &quot;rel&quot;: &quot;icon&quot;,
+        &quot;href&quot;: &quot;/operating-systems/logo.jpg&quot;
+      }
+    ]
+  ],
+  &quot;pages&quot;: [
+    {
+      &quot;title&quot;: &quot;main page&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/&quot;,
+      &quot;relativePath&quot;: &quot;README.md&quot;,
+      &quot;key&quot;: &quot;v-085fc0b0&quot;,
+      &quot;path&quot;: &quot;/&quot;,
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    },
+    {
+      &quot;title&quot;: &quot;this is javascript folder and readme&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/javascript/&quot;,
+      &quot;relativePath&quot;: &quot;javascript/README.md&quot;,
+      &quot;key&quot;: &quot;v-7019ff78&quot;,
+      &quot;path&quot;: &quot;/javascript/&quot;,
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    },
+    {
+      &quot;title&quot;: &quot;第 10 章 模块&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/javascript/chapter2.html&quot;,
+      &quot;relativePath&quot;: &quot;javascript/chapter2.md&quot;,
+      &quot;key&quot;: &quot;v-e418565a&quot;,
+      &quot;path&quot;: &quot;/javascript/chapter2.html&quot;,
+      &quot;headers&quot;: [
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;10.1 Modules with Classes, Objects, and Closures&quot;,
+          &quot;slug&quot;: &quot;_10-1-modules-with-classes-objects-and-closures&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.1.1 Automating Closure-Based Modularity&quot;,
+          &quot;slug&quot;: &quot;_10-1-1-automating-closure-based-modularity&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;10.2 Modules in Node&quot;,
+          &quot;slug&quot;: &quot;_10-2-modules-in-node&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.2.1 Node Exports&quot;,
+          &quot;slug&quot;: &quot;_10-2-1-node-exports&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.2.2 Node Imports&quot;,
+          &quot;slug&quot;: &quot;_10-2-2-node-imports&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.2.3 Node-Style Modules on the Web&quot;,
+          &quot;slug&quot;: &quot;_10-2-3-node-style-modules-on-the-web&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;10.3 Modules in ES6&quot;,
+          &quot;slug&quot;: &quot;_10-3-modules-in-es6&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.1 ES6 Exports&quot;,
+          &quot;slug&quot;: &quot;_10-3-1-es6-exports&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.2 ES6 Imports&quot;,
+          &quot;slug&quot;: &quot;_10-3-2-es6-imports&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.3 Imports and Exports with Renaming&quot;,
+          &quot;slug&quot;: &quot;_10-3-3-imports-and-exports-with-renaming&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.4 Re-Exports&quot;,
+          &quot;slug&quot;: &quot;_10-3-4-re-exports&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.5 JavaScript Modules on the Web&quot;,
+          &quot;slug&quot;: &quot;_10-3-5-javascript-modules-on-the-web&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.6 Dynamic Imports with import()&quot;,
+          &quot;slug&quot;: &quot;_10-3-6-dynamic-imports-with-import&quot;
+        },
+        {
+          &quot;level&quot;: 3,
+          &quot;title&quot;: &quot;10.3.7 import.meta.url&quot;,
+          &quot;slug&quot;: &quot;_10-3-7-import-meta-url&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;10.4 Summary&quot;,
+          &quot;slug&quot;: &quot;_10-4-summary&quot;
+        }
+      ],
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    },
+    {
+      &quot;title&quot;: &quot;os readme&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/os/&quot;,
+      &quot;relativePath&quot;: &quot;os/README.md&quot;,
+      &quot;key&quot;: &quot;v-2fa8d818&quot;,
+      &quot;path&quot;: &quot;/os/&quot;,
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    },
+    {
+      &quot;title&quot;: &quot;cpu&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/os/cpu.html&quot;,
+      &quot;relativePath&quot;: &quot;os/cpu.md&quot;,
+      &quot;key&quot;: &quot;v-685c0e25&quot;,
+      &quot;path&quot;: &quot;/os/cpu.html&quot;,
+      &quot;headers&quot;: [
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;gcc&quot;,
+          &quot;slug&quot;: &quot;gcc&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;include&quot;,
+          &quot;slug&quot;: &quot;include&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;main 函数&quot;,
+          &quot;slug&quot;: &quot;main-函数&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;exit 函数&quot;,
+          &quot;slug&quot;: &quot;exit-函数&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;fprintf&quot;,
+          &quot;slug&quot;: &quot;fprintf&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;printf&quot;,
+          &quot;slug&quot;: &quot;printf&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;stderr&quot;,
+          &quot;slug&quot;: &quot;stderr&quot;
+        }
+      ],
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    },
+    {
+      &quot;title&quot;: &quot;memory&quot;,
+      &quot;frontmatter&quot;: {},
+      &quot;regularPath&quot;: &quot;/os/memory.html&quot;,
+      &quot;relativePath&quot;: &quot;os/memory.md&quot;,
+      &quot;key&quot;: &quot;v-3d6b85f3&quot;,
+      &quot;path&quot;: &quot;/os/memory.html&quot;,
+      &quot;headers&quot;: [
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;编译指令错误&quot;,
+          &quot;slug&quot;: &quot;编译指令错误&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;函数名写错&quot;,
+          &quot;slug&quot;: &quot;函数名写错&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;强制类型转换错误&quot;,
+          &quot;slug&quot;: &quot;强制类型转换错误&quot;
+        },
+        {
+          &quot;level&quot;: 2,
+          &quot;title&quot;: &quot;%08lx&quot;,
+          &quot;slug&quot;: &quot;_08lx&quot;
+        }
+      ],
+      &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+      &quot;lastUpdatedTimestamp&quot;: 1654841762000
+    }
+  ],
+  &quot;themeConfig&quot;: {
+    &quot;nav&quot;: [
+      {
+        &quot;text&quot;: &quot;JavaScript&quot;,
+        &quot;link&quot;: &quot;/javascript/&quot;
+      },
+      {
+        &quot;text&quot;: &quot;Operation System&quot;,
+        &quot;link&quot;: &quot;/os/&quot;
+      }
+    ],
+    &quot;lastUpdated&quot;: &quot;Last Updated&quot;,
+    &quot;searchMaxSuggestoins&quot;: 10,
+    &quot;serviceWorker&quot;: {
+      &quot;updatePopup&quot;: {
+        &quot;message&quot;: &quot;有新的内容.&quot;,
+        &quot;buttonText&quot;: &quot;更新&quot;
+      }
+    },
+    &quot;editLinks&quot;: true,
+    &quot;editLinkText&quot;: &quot;在 GitHub 上编辑此页 ！&quot;
+  }
+}
+  </pre> <pre>    {
+  &quot;title&quot;: &quot;第 10 章 模块&quot;,
+  &quot;frontmatter&quot;: {},
+  &quot;regularPath&quot;: &quot;/javascript/chapter2.html&quot;,
+  &quot;relativePath&quot;: &quot;javascript/chapter2.md&quot;,
+  &quot;key&quot;: &quot;v-e418565a&quot;,
+  &quot;path&quot;: &quot;/javascript/chapter2.html&quot;,
+  &quot;headers&quot;: [
+    {
+      &quot;level&quot;: 2,
+      &quot;title&quot;: &quot;10.1 Modules with Classes, Objects, and Closures&quot;,
+      &quot;slug&quot;: &quot;_10-1-modules-with-classes-objects-and-closures&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.1.1 Automating Closure-Based Modularity&quot;,
+      &quot;slug&quot;: &quot;_10-1-1-automating-closure-based-modularity&quot;
+    },
+    {
+      &quot;level&quot;: 2,
+      &quot;title&quot;: &quot;10.2 Modules in Node&quot;,
+      &quot;slug&quot;: &quot;_10-2-modules-in-node&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.2.1 Node Exports&quot;,
+      &quot;slug&quot;: &quot;_10-2-1-node-exports&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.2.2 Node Imports&quot;,
+      &quot;slug&quot;: &quot;_10-2-2-node-imports&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.2.3 Node-Style Modules on the Web&quot;,
+      &quot;slug&quot;: &quot;_10-2-3-node-style-modules-on-the-web&quot;
+    },
+    {
+      &quot;level&quot;: 2,
+      &quot;title&quot;: &quot;10.3 Modules in ES6&quot;,
+      &quot;slug&quot;: &quot;_10-3-modules-in-es6&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.1 ES6 Exports&quot;,
+      &quot;slug&quot;: &quot;_10-3-1-es6-exports&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.2 ES6 Imports&quot;,
+      &quot;slug&quot;: &quot;_10-3-2-es6-imports&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.3 Imports and Exports with Renaming&quot;,
+      &quot;slug&quot;: &quot;_10-3-3-imports-and-exports-with-renaming&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.4 Re-Exports&quot;,
+      &quot;slug&quot;: &quot;_10-3-4-re-exports&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.5 JavaScript Modules on the Web&quot;,
+      &quot;slug&quot;: &quot;_10-3-5-javascript-modules-on-the-web&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.6 Dynamic Imports with import()&quot;,
+      &quot;slug&quot;: &quot;_10-3-6-dynamic-imports-with-import&quot;
+    },
+    {
+      &quot;level&quot;: 3,
+      &quot;title&quot;: &quot;10.3.7 import.meta.url&quot;,
+      &quot;slug&quot;: &quot;_10-3-7-import-meta-url&quot;
+    },
+    {
+      &quot;level&quot;: 2,
+      &quot;title&quot;: &quot;10.4 Summary&quot;,
+      &quot;slug&quot;: &quot;_10-4-summary&quot;
+    }
+  ],
+  &quot;lastUpdated&quot;: &quot;6/10/2022, 6:16:02 AM&quot;,
+  &quot;lastUpdatedTimestamp&quot;: 1654841762000
+}
+  </pre></div> <div class="ten-article-body content__default"><h1 id="第-10-章-模块"><a href="#第-10-章-模块" class="header-anchor">#</a> 第 10 章 模块</h1> <p>[toc]</p> <p>The goal of modular programming is to allow large programs to be assembled using modules of code from disparate authors and sources and for all of that code to run correctly even in the presence of code that the various module authors did not anticipate. As a practical matter, modularity is mostly about encapsulating or hiding private implementation details and keeping the global namespace tidy so that modules cannot accidentally modify the variables, functions, and classes defined by other modules.</p> <blockquote><p>模块化编程的目标是允许使用来自不同作者和源的代码模块来组装大型程序，并且即使出现了不同模块作者没有预料到的代码，所有这些代码也能正确运行。作为一个实际问题，模块化主要是关于封装或隐藏私有实现细节和保持全局名称空间整洁，以便模块不会意外地修改其他模块定义的变量、函数和类。</p></blockquote> <p>Until recently, JavaScript had no built-in support for modules, and programmers working on large code bases did their best to use the weak modularity available through classes, objects, and closures. Closure-based modularity, with support from code-bundling tools, led to a practical form of modularity based on a require() function, which was adopted by Node. require()-based modules are a fundamental part of the Node programming environment but were never adopted as an official part of the JavaScript language. Instead, ES6 defines modules using import and export keywords. Although import and export have been part of the language for years, they were only implemented by web browsers and Node relatively recently. And, as a practical matter, JavaScript modularity still depends on code-bundling tools.</p> <blockquote><p>直到最近，JavaScript 还没有对模块的内置支持，在大型代码库上工作的程序员尽力使用类、对象和闭包的弱模块性。基于闭包的模块化在代码捆绑工具的支持下，实际使用中形成了一种基于 require() 函数的模块化形式，Node 采用了这种形式。基于 require() 的模块是 Node 编程环境的基本部分，但从未被作为 JavaScript 语言的正式部分采用。相反，ES6 使用 import 和 import 关键字定义模块。虽然 import 和 export 已经成为语言的一部分很多年了，但是它们只是最近才被 web 浏览器和 Node 实现。而且，作为一个实际问题，JavaScript 模块化仍然依赖于代码捆绑工具。</p></blockquote> <p>The sections that follow cover:</p> <blockquote><p>以下各节包括:</p></blockquote> <ul><li>Do-it-yourself modules with classes, objects, and closures</li> <li>Node modules using require()</li> <li>ES6 modules using export, import, and import()</li></ul> <hr> <blockquote><ul><li>使用类、对象和闭包自己做模块</li> <li>使用 require() 的 Node 模块</li> <li>使用 export、import 和 import() 的ES6模块</li></ul></blockquote> <h2 id="_10-1-modules-with-classes-objects-and-closures"><a href="#_10-1-modules-with-classes-objects-and-closures" class="header-anchor">#</a> 10.1 Modules with Classes, Objects, and Closures</h2> <p>Though it may be obvious, it is worth pointing out that one of the important features of classes is that they act as modules for their methods. Think back to Example 9-8. That example defined a number of different classes, all of which had a method named has(). But you would have no problem writing a program that used multiple set classes from that example: there is no danger that the implementation of has() from SingletonSet will overwrite the has() method of BitSet, for example.</p> <blockquote><p>尽管这可能很明显，但值得指出的是，类的重要特性之一是它们充当其方法的模块。回想一下示例 9-8。该示例定义了许多不同的类，所有这些类都有一个名为 has() 的方法。但是，在编写使用该示例中的多个 set 类的程序时没有问题：例如，SingletonSet 的 has() 实现不会覆盖 BitSet 的 has() 方法。</p></blockquote> <p>The reason that the methods of one class are independent of the methods of other, unrelated classes is that the methods of each class are defined as properties of independent prototype objects. The reason that classes are modular is that objects are modular: defining a property in a JavaScript object is a lot like declaring a variable, but adding properties to objects does not affect the global namespace of a program, nor does it affect the properties of other objects. JavaScript defines quite a few mathematical functions and constants, but instead of defining them all globally, they are grouped as properties of a single global Math object. This same technique could have been used in Example 9-8. Instead of defining global classes with names like SingletonSet and BitSet, that example could have been written to define only a single global Sets object, with properties referencing the various classes. Users of this Sets library could then refer to the classes with names like Sets.Singleton and Sets.Bit.</p> <blockquote><p>一个类的方法独立于其他不相关类的方法的原因是，每个类的方法都被定义为独立原型对象的属性。类是模块化的原因是对象是模块化的：在 JavaScript 对象中定义属性非常类似于声明变量，但是向对象添加属性不会影响程序的全局命名空间，也不会影响其他对象的属性。JavaScript 定义了很多数学函数和常量，但它们不是全局定义的，而是分组为 Math 全局对象的单个属性。同样的技术也可以用在示例 9-8 中。不使用 SingletonSet 和 BitSet 这样的名称定义全局类，这个示例可以编写为只有一个 Sets 全局对象，Sets 的属性引用各种类。然后，用户可以使用这个 Sets 库通过 Sets.Singleton 和 Sets.Bit 的名称来获取类的引用。</p></blockquote> <p>Using classes and objects for modularity is a common and useful technique in JavaScript programming, but it doesn’t go far enough. In particular, it doesn’t offer us any way to hide internal implementation details inside the module. Consider Example 9-8 again. If we were writing that example as a module, maybe we would have wanted to keep the various abstract classes internal to the module, only making the concrete subclasses available to users of the module. Similarly, in the BitSet class, the _valid() and _has() methods are internal utilities that should not really be exposed to users of the class. And BitSet.bits and BitSet.masks are implementation details that would be better off hidden.</p> <blockquote><p>使用类和对象实现模块化是 JavaScript 编程中常见而有用的技术，但这还不够。特别是，它没有提供任何方法来隐藏模块内部的实现细节。再次考虑示例 9-8。如果我们将该示例作为一个模块来编写，也许我们会希望将各种抽象类保留在模块内部，只让具体的子类对模块的用户可用。同样，在 BitSet 类中，_valid() 和 _has() 方法是内部实用程序，不应该向类的用户公开它们。BitSet.bits 和 BitSet.masks 是实现细节，最好隐藏起来。</p></blockquote> <p>As we saw in §8.6, local variables and nested functions declared within a function are private to that function. This means that we can use immediately invoked function expressions to achieve a kind of modularity by leaving the implementation details and utility functions hidden within the enclosing function but making the public API of the module the return value of the function. In the case of the BitSet class, we might structure the module like this:</p> <blockquote><p>正如我们在 §8.6 中看到的，在函数中声明的局部变量和嵌套函数是该函数私有的。这意味着我们可以使用立即调用函数表达式来实现一种模块化，方法是将实现细节和实用函数隐藏在封装的函数中，而将模块的公共 API 作为函数的返回值。在 BitSet 类的情况下，我们可以像这样构造模块:</p></blockquote> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> BitSet <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// Set BitSet to the return value of this function</span>
     <span class="token comment">// Private implementation details here</span>
     <span class="token keyword">function</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token parameter">set<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
     <span class="token keyword">function</span> <span class="token function">has</span><span class="token punctuation">(</span><span class="token parameter">set<span class="token punctuation">,</span> byte<span class="token punctuation">,</span> bit</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
@@ -192,7 +513,7 @@ we might <span class="token keyword">import</span> it and use it dynamically<spa
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>The argument to import() should be a module specifier, exactly like one you’d use with a static import directive. But with import(), you are not constrained to use a constant string literal: any expression that evaluates to a string in the proper form will do.</p> <p>Dynamic import() looks like a function invocation, but it actually is not. Instead, import() is an operator and the parentheses are a required part of the operator syntax. The reason for this unusual bit of syntax is that import() needs to be able to resolve module specifiers as URLs relative to the currently running module, and this requires a bit of implementation magic that would not be legal to put in a JavaScript function. The function versus operator distinction rarely makes a difference in practice, but you’ll notice it if you try writing code like console.log(import); or let require = import;.</p> <p>Finally, note that dynamic import() is not just for web browsers. Code-packaging tools like webpack can also make good use of it. The most straightforward way to use a code bundler is to tell it the main entry point for your program and let it find all the static import directives and assemble everything into one large file. By strategically using dynamic import() calls, however, you can break that one monolithic bundle up into a set of smaller bundles that can be loaded on demand.</p> <h3 id="_10-3-7-import-meta-url"><a href="#_10-3-7-import-meta-url" class="header-anchor">#</a> 10.3.7 import.meta.url</h3> <p>There is one final feature of the ES6 module system to discuss. Within an ES6 module (but not within a regular <code>&lt;script&gt;</code>or a Node module loaded with require()), the special syntax import.meta refers to an object that contains metadata about the currently executing module. The url property of this object is the URL from which the module was loaded. (In Node, this will be a file:// URL.)</p> <p>The primary use case of import.meta.url is to be able to refer to images, data files, or other resources that are stored in the same directory as (or relative to) the module. The URL() constructor makes it easy to resolve a relative URL against an absolute URL like import.meta.url. Suppose, for example, that you have written a module that includes strings that need to be localized and that the localization files are stored in an l10n/ directory, which is in the same directory as the module itself. Your module could load its strings using a URL created with a function, like this:</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">localStringsURL</span><span class="token punctuation">(</span><span class="token parameter">locale</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">l10n/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>locale<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_10-4-summary"><a href="#_10-4-summary" class="header-anchor">#</a> 10.4 Summary</h2> <p>The goal of modularity is to allow programmers to hide the implementation details of their code so that chunks of code from various sources can be assembled into large programs without worrying that one chunk will overwrite functions or variables of another. This chapter has explained three different JavaScript module systems:</p> <ul><li>In the early days of JavaScript, modularity could only be achieved through the clever use of immediately invoked function expressions.</li> <li>Node added its own module system on top of the JavaScript language. Node modules are imported with require() and define their exports by setting properties of the Exports object, or by setting the module.exports property.</li> <li>In ES6, JavaScript finally got its own module system with import and export keywords, and ES2020 is adding support for dynamic imports with import().</li></ul> <hr> <ol><li>For example: web apps that have frequent incremental updates and users who make frequent return visits may find that using small modules instead of large bundles can result in better average load times because of better utilization of the user’s browser cache.</li></ol></div></div></div> <div class="ten-layout-dynamic ten-layout-sidebar"><pre><div class="ten-sidebar"><!----> <ul><li class="level-1"><a>第 10 章 模块</a></li> <li class="level-2"><a href="#_10-1-modules-with-classes-objects-and-closures">10.1 Modules with Classes, Objects, and Closures</a></li><li class="level-3"><a href="#_10-1-1-automating-closure-based-modularity">10.1.1 Automating Closure-Based Modularity</a></li><li class="level-2"><a href="#_10-2-modules-in-node">10.2 Modules in Node</a></li><li class="level-3"><a href="#_10-2-1-node-exports">10.2.1 Node Exports</a></li><li class="level-3"><a href="#_10-2-2-node-imports">10.2.2 Node Imports</a></li><li class="level-3"><a href="#_10-2-3-node-style-modules-on-the-web">10.2.3 Node-Style Modules on the Web</a></li><li class="level-2"><a href="#_10-3-modules-in-es6">10.3 Modules in ES6</a></li><li class="level-3"><a href="#_10-3-1-es6-exports">10.3.1 ES6 Exports</a></li><li class="level-3"><a href="#_10-3-2-es6-imports">10.3.2 ES6 Imports</a></li><li class="level-3"><a href="#_10-3-3-imports-and-exports-with-renaming">10.3.3 Imports and Exports with Renaming</a></li><li class="level-3"><a href="#_10-3-4-re-exports">10.3.4 Re-Exports</a></li><li class="level-3"><a href="#_10-3-5-javascript-modules-on-the-web">10.3.5 JavaScript Modules on the Web</a></li><li class="level-3"><a href="#_10-3-6-dynamic-imports-with-import">10.3.6 Dynamic Imports with import()</a></li><li class="level-3"><a href="#_10-3-7-import-meta-url">10.3.7 import.meta.url</a></li><li class="level-2"><a href="#_10-4-summary">10.4 Summary</a></li></ul></div></pre></div></div> <div class="ten-layout-static ten-layout-bottom"></div></div><div class="global-ui"><!----></div></div>
-    <script src="/operating-systems/assets/js/app.7a90c72f.js" defer></script><script src="/operating-systems/assets/js/2.9b8aadf5.js" defer></script><script src="/operating-systems/assets/js/9.5476164b.js" defer></script><script src="/operating-systems/assets/js/5.0efd59db.js" defer></script>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_10-4-summary"><a href="#_10-4-summary" class="header-anchor">#</a> 10.4 Summary</h2> <p>The goal of modularity is to allow programmers to hide the implementation details of their code so that chunks of code from various sources can be assembled into large programs without worrying that one chunk will overwrite functions or variables of another. This chapter has explained three different JavaScript module systems:</p> <ul><li>In the early days of JavaScript, modularity could only be achieved through the clever use of immediately invoked function expressions.</li> <li>Node added its own module system on top of the JavaScript language. Node modules are imported with require() and define their exports by setting properties of the Exports object, or by setting the module.exports property.</li> <li>In ES6, JavaScript finally got its own module system with import and export keywords, and ES2020 is adding support for dynamic imports with import().</li></ul> <hr> <ol><li>For example: web apps that have frequent incremental updates and users who make frequent return visits may find that using small modules instead of large bundles can result in better average load times because of better utilization of the user’s browser cache.</li></ol></div></div></div> <div class="ten-layout-dynamic ten-layout-sidebar"><div class="ten-sidebar"><!----> <ul><li class="level-1"><a>第 10 章 模块</a></li> <li class="level-2"><a href="#_10-1-modules-with-classes-objects-and-closures">10.1 Modules with Classes, Objects, and Closures</a></li><li class="level-3"><a href="#_10-1-1-automating-closure-based-modularity">10.1.1 Automating Closure-Based Modularity</a></li><li class="level-2"><a href="#_10-2-modules-in-node">10.2 Modules in Node</a></li><li class="level-3"><a href="#_10-2-1-node-exports">10.2.1 Node Exports</a></li><li class="level-3"><a href="#_10-2-2-node-imports">10.2.2 Node Imports</a></li><li class="level-3"><a href="#_10-2-3-node-style-modules-on-the-web">10.2.3 Node-Style Modules on the Web</a></li><li class="level-2"><a href="#_10-3-modules-in-es6">10.3 Modules in ES6</a></li><li class="level-3"><a href="#_10-3-1-es6-exports">10.3.1 ES6 Exports</a></li><li class="level-3"><a href="#_10-3-2-es6-imports">10.3.2 ES6 Imports</a></li><li class="level-3"><a href="#_10-3-3-imports-and-exports-with-renaming">10.3.3 Imports and Exports with Renaming</a></li><li class="level-3"><a href="#_10-3-4-re-exports">10.3.4 Re-Exports</a></li><li class="level-3"><a href="#_10-3-5-javascript-modules-on-the-web">10.3.5 JavaScript Modules on the Web</a></li><li class="level-3"><a href="#_10-3-6-dynamic-imports-with-import">10.3.6 Dynamic Imports with import()</a></li><li class="level-3"><a href="#_10-3-7-import-meta-url">10.3.7 import.meta.url</a></li><li class="level-2"><a href="#_10-4-summary">10.4 Summary</a></li></ul></div></div></div> <div class="ten-layout-static ten-layout-bottom"></div></div><div class="global-ui"><!----></div></div>
+    <script src="/operating-systems/assets/js/app.adfa2867.js" defer></script><script src="/operating-systems/assets/js/2.98616f0e.js" defer></script><script src="/operating-systems/assets/js/4.47e78be3.js" defer></script><script src="/operating-systems/assets/js/9.5476164b.js" defer></script><script src="/operating-systems/assets/js/5.7b205554.js" defer></script>
   </body>
 </html>
