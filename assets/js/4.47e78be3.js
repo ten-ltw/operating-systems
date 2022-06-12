@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{379:function(t,s,e){"use strict";e.r(s);var i=e(35),n=Object(i.a)({},(function(){var t=this.$createElement,s=this._self._c||t;return s("div",[s("pre",[this._v("    "+this._s(this.$site)+"\n  ")]),this._v(" "),s("pre",[this._v("    "+this._s(this.$page)+"\n  ")])])}),[],!1,null,null,null);s.default=n.exports}}]);
