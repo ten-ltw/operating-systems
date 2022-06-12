@@ -12,11 +12,11 @@ module.exports = {
     nav: [
       {
         text: "JavaScript",
-        link: "/javascript/",
+        link: "/operating-systems/javascript/",
       },
       {
         text: "Operation System",
-        link: "/os/",
+        link: "/operating-systems/os/",
       },
     ],
     lastUpdated: "Last Updated",
