@@ -30,15 +30,12 @@ module.exports = {
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页 ！",
   },
-  // plugins: [
-  //   "@vuepress/active-header-links",
-  //   [
-  //     "vuepress-plugin-auto-sidebar",
-  //     {
-  //       sidebarLinkSelector: ".sidebar-link",
-  //       headerAnchorSelector: ".header-anchor",
-  //     },
-  //   ],
-  //   "@vuepress/back-to-top",
-  // ],
+  plugins: [
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "3643954638", // G-SHZBTMBMCF
+      },
+    ],
+  ],
 };

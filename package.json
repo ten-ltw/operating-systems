@@ -17,8 +17,9 @@
   "homepage": "https://github.com/ten-ltw/operating-systems#readme",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.9.7",
-    "yarn": "^1.22.18",
+    "@vuepress/plugin-google-analytics": "^1.9.7",
     "vuepress": "^1.9.7",
-    "vuepress-plugin-auto-sidebar": "^2.3.2"
+    "vuepress-plugin-auto-sidebar": "^2.3.2",
+    "yarn": "^1.22.18"
   }
 }
