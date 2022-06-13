@@ -10,7 +10,7 @@
 export default {
   methods: {
     isActive(link) {
-      return this.$route.path.indexOf(link) === 0;
+      return this.$route.path.indexOf(link.replace(this.$site.base, '')) > -1;
     }
   }
 }

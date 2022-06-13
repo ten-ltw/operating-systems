@@ -2,7 +2,7 @@
   <div class="ten-sidebar">
     <ul v-if="pages().length > 0">
       <li class="level" v-for="page in pages()">
-        <a :href="page.path">{{ page.title }}</a>
+        <a :href="($site.base + page.path).replace('//','/')">{{ page.title }}</a>
       </li>
     </ul>
     <ul v-if="pages().length === 0">
