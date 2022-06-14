@@ -8,5 +8,11 @@ module.exports = {
     //   },
     // ],
     "@vuepress/back-to-top",
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "G-SHZBTMBMCF", // G-SHZBTMBMCF
+      },
+    ],
   ],
 };

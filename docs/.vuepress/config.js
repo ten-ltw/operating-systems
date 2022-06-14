@@ -32,9 +32,9 @@ module.exports = {
   },
   plugins: [
     [
-      "@vuepress/google-analytics",
+      '@vuepress/plugin-google-analytics',
       {
-        ga: "G-SHZBTMBMCF", // G-SHZBTMBMCF
+        id: 'G-SHZBTMBMCF',
       },
     ],
   ],
